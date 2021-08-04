@@ -1,6 +1,12 @@
+* {
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
 #Clock {
   width: 100%;
   height: 100%;
+  background-color: #ccc;
 }
 
 #Clock > * {
@@ -12,9 +18,9 @@ table {
 }
 
 .clock {
-  background: #fff url(ios_clock.svg) no-repeat center;
-  height: 2vw;
-  width: 2vw;
+  background: url(ios_clock.svg) no-repeat center;
+  height: 3vw;
+  width: 3vw;
   position: relative;
 }
 
@@ -23,12 +29,12 @@ table {
   border-radius: 50%;
   content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%);
-  width: 10%;
-  height: 10%;
+  width: 0.4vw;
+  height: 0.4vw;
   z-index: 10;
+  top: 1.55vw;
+  left: 1.55vw;
 }
 
 .minutes-container, .hours-container {
@@ -40,21 +46,25 @@ table {
 }
 
 .hours {
-  background: #000;
-  height: 20%;
-  left: 48.75%;
+  background-color: #000;
+  height: 0.9vw;
   position: absolute;
-  top: 30%;
   transform-origin: 50% 100%;
-  width: 5%;
+  width: 0.3vw;
+  top: 0.65vw;
+  left: 1.4vw;
 }
 
 .minutes {
-  background: #000;
-  height: 40%;
-  left: 48%;
+  background-color: #000;
+  height: 1.1vw;
   position: absolute;
   transform-origin: 50% 100%;
-  top: 10%;
-  width: 5%;
+  width: 0.3vw;
+  left: 1.35vw;
+  top: 0.5vw;
+}
+
+:not(.clock).active, .active:after {
+  background-color: crimson;
 }

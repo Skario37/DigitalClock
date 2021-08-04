@@ -24,11 +24,20 @@ class SubClock {
   }
 
   update = (h, m) => {
+    if (h === 7 && m === 5) {
+      this._hours.classList.remove("active");
+      this._minutes.classList.remove("active");
+      this._container.classList.remove("active");
+    } else if (this._h === 7 && this._m === 5 && (h !== this._h || m !== this._m)) {
+      this._hours.classList.add("active");
+      this._minutes.classList.add("active");
+      this._container.classList.add("active");
+    }
     if (h && h !== this._h) {
-      const h_duration = 0.5;
+      // const h_duration = 0.5;
       if (h < this._h) this._h_iteration++;
       this._h = h;
-      this._hours.style.transitionDuration = `${h_duration}s`;
+      // this._hours.style.transitionDuration = `${h_duration}s`;
       this._hours.style.transform = `rotateZ(${this._h*30+360*this._h_iteration}deg)`;
     }
 
@@ -36,7 +45,7 @@ class SubClock {
       const m_duration = 0.5;
       if (m < this._m) this._m_iteration++;
       this._m = m;
-      this._minutes.style.transitionDuration = `${m_duration}s`;
+      // this._minutes.style.transitionDuration = `${m_duration}s`;
       this._minutes.style.transform = `rotateZ(${this._m*6+360*this._m_iteration}deg)`;
     }
   }
